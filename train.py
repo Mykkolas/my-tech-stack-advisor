@@ -1,7 +1,8 @@
+import pickle
+
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
-import pickle
 
 # Sample synthetic data
 data = {
@@ -9,7 +10,13 @@ data = {
     "team_size": [3, 2, 5, 6, 1],
     "perf_need": ["Medium", "Low", "Medium", "High", "Low"],
     "experience": ["Intermediate", "Beginner", "Expert", "Expert", "Beginner"],
-    "stack": ["Django + PostgreSQL", "Flask + SQLite", "FastAPI + TensorFlow", "Node.js + Redis", "Django + SQLite"]
+    "stack": [
+        "Django + PostgreSQL",
+        "Flask + SQLite",
+        "FastAPI + TensorFlow",
+        "Node.js + Redis",
+        "Django + SQLite",
+    ],
 }
 
 df = pd.DataFrame(data)
@@ -34,3 +41,5 @@ with open("model.pkl", "wb") as f:
 # Save encoders for use in app
 with open("encoders.pkl", "wb") as f:
     pickle.dump(encoders, f)
+
+# Cool idea to retrain model with some time period, Churn Score is interesting concept
